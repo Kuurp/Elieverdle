@@ -306,7 +306,7 @@ function getWinDivInnerHTML() {
     const todaysChar = data[todaysCharIndex];
     return `
         <h2>Victory!</h2>
-        <p>You guessed ${todaysChar.name} correctly in ${game.tries.length} tries!</p>
+        <p>You guessed ${todaysChar.name} correctly!</p>
         <div id="share">
             <button id="shareBtn" onclick="resultToClipboard()">Share Result</button>
         </div>
@@ -357,4 +357,5 @@ function isWon() {
     const todaysChar = data[todaysCharIndex];
     console.log('Todays char:', todaysChar);
     return game.tries.includes(todaysChar.name);
+
 }
