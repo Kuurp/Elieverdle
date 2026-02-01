@@ -283,7 +283,7 @@ function charRecapEmoji(comparison) {
 
 function resultToClipboard() {
     const todaysChar = data[todaysCharIndex];
-    let result = `Elieverdle - ${game.tries.length} tries\n`;
+    let result = `Elieverdle\n`;
     game.tries.forEach(charName => {
         const charIndex = data.findIndex(char => char.name === charName);
         if (charIndex === -1) return;
@@ -359,3 +359,4 @@ function isWon() {
     return game.tries.includes(todaysChar.name);
 
 }
+
