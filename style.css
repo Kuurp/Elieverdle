@@ -3,6 +3,10 @@
     src: url("FSEX300.ttf");
 }
 
+.outline {
+    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+}
+
 * {
     font-family: "FSEX300", sans-serif;
 }
@@ -53,8 +57,8 @@ h1 {
 }
 
 .name {
-    width: 70px;
-    min-width: 70px;
+    width: 90px;
+    min-width: 90px;
 }
 
 .species {
