@@ -11,8 +11,8 @@ var game = {
     tries: [],
     hintShown: false,
 };
-var playerData = JSON.parse(localStorage.getItem('playerData') || '{}');
-var stats = JSON.parse(localStorage.getItem('stats') || '{}');
+var playerData = JSON.parse(localStorage.getItem('elieverdle_playerData') || '{}');
+var stats = JSON.parse(localStorage.getItem('elieverdle_stats') || '{}');
 
 function getSeed() {
     const now = new Date(new Date().toLocaleString("en-US", {timeZone: "Europe/Paris"}));
@@ -157,7 +157,7 @@ function play(charName) {
     if (won) {
         const numTries = game.tries.length;
         stats[numTries] = (stats[numTries] || 0) + 1;
-        localStorage.setItem('stats', JSON.stringify(stats));
+        localStorage.setItem('elieverdle_stats', JSON.stringify(stats));
     }
     
     playerData[seed] = { 
@@ -166,7 +166,7 @@ function play(charName) {
         win: won,
         stored: won  // Mark as stored if won
     };
-    localStorage.setItem('playerData', JSON.stringify(playerData));
+    localStorage.setItem('elieverdle_playerData', JSON.stringify(playerData));
     
     displayGame();
     
@@ -208,11 +208,11 @@ function cleanupOldGames(currentSeed, playerData) {
     seedsToRemove.forEach(seed => delete playerData[seed]);
     
     if (seedsToRemove.length > 0) {
-        localStorage.setItem('playerData', JSON.stringify(playerData));
+        localStorage.setItem('elieverdle_playerData', JSON.stringify(playerData));
     }
     
     if (statsUpdated) {
-        localStorage.setItem('stats', JSON.stringify(stats));
+        localStorage.setItem('elieverdle_stats', JSON.stringify(stats));
     }
 }
 
