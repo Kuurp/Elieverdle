@@ -360,3 +360,7 @@ function isWon() {
 
 }
 
+if (new Date().getDay() === 5) { // 5 = Friday
+    document.body.style.backgroundImage = "url('image.png')";
+    document.body.style.backgroundSize = "cover";
+}
