@@ -58,7 +58,6 @@ const rowsDiv = document.getElementById('rows');
 
 getData(csvPath).then(loadedData => {
     data = loadedData;
-    console.log('Data loaded:', loadedData);
     todaysCharIndex = getSeed() % data.length;
     
     const seed = getSeed();
@@ -355,7 +354,6 @@ function displayGame() {
 
 function isWon() {
     const todaysChar = data[todaysCharIndex];
-    console.log('Todays char:', todaysChar);
     return game.tries.includes(todaysChar.name);
 
 }
