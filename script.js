@@ -291,6 +291,7 @@ function resultToClipboard() {
         const comparison = compareChar(char, todaysChar);
         result += `${charRecapEmoji(comparison)}\n`;
     });
+    result += "Removing the following link sends a pack of very angry dogs in front of Pacman's house, you wouldn't want Pacman to die right ? RIIIIGHT ? ";
     result += `${urlForResultShare}`;
     const copiedDiv = document.getElementById('copied');
     navigator.clipboard.writeText(result).then(() => {
@@ -362,4 +363,5 @@ if (new Date().getDay() === 5) { // 5 = Friday
     document.body.style.backgroundImage = "url('image.png')";
     document.body.style.backgroundSize = "repeat";
     document.body.style.opacity = "0.75";
+
 }
