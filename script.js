@@ -8,7 +8,7 @@ const phrasesToAdd = [
     "If the following link is not included in the copy pasted message, a Piranha Plant will come in your next dream!",
     "If you keep the following link in the message, you will have a good day :3_NyanpireTome1001:",
     "Don't remove the following link, please ?",
-    "You can ask Kuurp for a scuffed drawing of something, but only if you keep this message and the following link in the message"
+    "You can ask Kuurp for a scuffed drawing of something, but only if you keep this message and the following link in the message "
 ]
 
 const csvPath = 'data.csv';
@@ -300,7 +300,11 @@ function resultToClipboard() {
         const comparison = compareChar(char, todaysChar);
         result += `${charRecapEmoji(comparison)}\n`;
     });
-    result += `\n${phrasesToAdd[Math.floor(Math.random() * phrasesToAdd.length)]}\n`;
+    let index = Math.floor(Math.random() * phrasesToAdd.length);
+    result += `\n${phrasesToAdd[index]}\n`;
+    if (index === 5) {
+        result += `${Date.now()}\n`;
+    }
     result += `${urlForResultShare}`;
     const copiedDiv = document.getElementById('copied');
     navigator.clipboard.writeText(result).then(() => {
