@@ -6,6 +6,9 @@ const phrasesToAdd = [
     "Removing the following link sends a pack of very angry dogs in front of Pacman's house, you wouldn't want Pacman to die right ? RIIIIGHT ? ",
     "You next chocolate doughnut will turn into a strawberry one if you remove the following link:",
     "If the following link is not included in the copy pasted message, a Piranha Plant will come in your next dream!",
+    "If you keep the following link in the message, you will have a good day :3_NyanpireTome1001:",
+    "Don't remove the following link, please ?",
+    "You can ask Kuurp for a scuffed drawing of something, but only if you keep this message and the following link in the message"
 ]
 
 const csvPath = 'data.csv';
