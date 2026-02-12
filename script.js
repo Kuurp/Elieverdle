@@ -2,6 +2,12 @@ const CORRECT = 'correct';
 const PARTIALLY_CORRECT = 'partially_correct';
 const WRONG = 'wrong';
 
+const phrasesToAdd = [
+    "Removing the following link sends a pack of very angry dogs in front of Pacman's house, you wouldn't want Pacman to die right ? RIIIIGHT ? ",
+    "You next chocolate doughnut will turn into a strawberry one if you remove the following link:",
+    "If the following link is not included in the copy pasted message, a Piranha Plant will come in your next dream!",
+]
+
 const csvPath = 'data.csv';
 const urlForResultShare = 'https://kuuro-neko.github.io/Elieverdle/';
 const fieldLength = 4;
@@ -291,7 +297,7 @@ function resultToClipboard() {
         const comparison = compareChar(char, todaysChar);
         result += `${charRecapEmoji(comparison)}\n`;
     });
-    result += "Removing the following link sends a pack of very angry dogs in front of Pacman's house, you wouldn't want Pacman to die right ? RIIIIGHT ? ";
+    result += `\n${phrasesToAdd[Math.floor(Math.random() * phrasesToAdd.length)]}\n`;
     result += `${urlForResultShare}`;
     const copiedDiv = document.getElementById('copied');
     navigator.clipboard.writeText(result).then(() => {
