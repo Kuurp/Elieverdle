@@ -377,4 +377,8 @@ if (new Date().getDay() === 5) { // 5 = Friday
     document.body.style.backgroundSize = "repeat";
     document.body.style.opacity = "0.75";
 
+    const ogDescription = document.querySelector('meta[property="og:description"]');
+    if (ogDescription) {
+        ogDescription.setAttribute('content', 'He used to smile! It\'s Friday! Kitty day!');
+    }
 }
