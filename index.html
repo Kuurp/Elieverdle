@@ -15,6 +15,8 @@
     <!-- Bonjour dos! -->
 </head>
 <body>
+    <audio id="dragoncoin" src="dragon-coin.ogg" preload="auto"></audio>
+    <div id="yoshicoin-count" style="position: absolute;"><p></p></div>
     <h1 class="outline">Elieverdle</h1>
     <div id="input-container">
         <div id="input-wrapper">
@@ -53,5 +55,105 @@
     </script>
     
     <script src="script.js"></script>
+
+    <script>
+        function getYoshicoinCount() {
+            return parseInt(localStorage.getItem('yoshicoinCount')) || 0;
+        }
+        let yoshicoinDivs = [];
+        let yoshicoins = getYoshicoinCount();
+
+        function isDragoncoinMode() {
+            // player finished today's elieverdle and the answer is "Miya"
+            const playerData = JSON.parse(localStorage.getItem('elieverdle_playerData') || '{}');
+            const todaysSeed = getSeed();
+            const todayData = playerData[todaysSeed];
+            
+            if (!todayData || !todayData.win) {
+                return false;
+            }
+            
+            if (!data) return false;
+            const todaysCharIndex = todaysSeed % data.length;
+            return data[todaysCharIndex].name === 'Miya';
+        }
+
+        function updateYoshicoinDisplay() {
+            const coinName = isDragoncoinMode() ? 'Dragoncoins' : 'Yoshicoins';
+            const yoshicoinCountDiv = document.getElementById('yoshicoin-count');
+            if (yoshicoinCountDiv) {
+                yoshicoinCountDiv.querySelector('p').textContent = `${coinName}: ${yoshicoins}`;
+            }
+        }
+
+        function addYoshicoin() {
+            const isDragon = isDragoncoinMode();
+            const coinName = isDragon ? 'Dragoncoin' : 'Yoshicoin';
+            const coinImage = 'yoshicoin.webp';
+            
+            const yoshicoin = document.createElement('img');
+            yoshicoin.src = coinImage;
+            yoshicoin.classList.add('yoshicoin');
+            yoshicoin.style.position = 'absolute';
+            yoshicoin.style.left = Math.random() * (window.innerWidth - 50) + 'px';
+            yoshicoin.style.top = Math.random() * (window.innerHeight - 50) + 'px';
+            yoshicoin.style.width = '50px';
+            yoshicoin.style.imageRendering = 'pixelated';
+
+            let ycA = document.createElement('a');
+            ycA.appendChild(yoshicoin);
+            ycA.style.cursor = 'pointer';
+            ycA.addEventListener('click', () => {
+                const posLeft = yoshicoin.style.left;
+                const posTop = yoshicoin.style.top;
+
+                const sound = document.getElementById('dragoncoin');
+                if (sound) {
+                    sound.currentTime = 0;
+                    sound.play();
+                }
+                
+                yoshicoins++;
+                localStorage.setItem('yoshicoinCount', yoshicoins);
+                updateYoshicoinDisplay();
+                ycA.parentNode.removeChild(ycA);
+                yoshicoinDivs = yoshicoinDivs.filter(div => div !== ycA);
+                const textDiv = document.createElement('div');
+                const currentCoinName = isDragoncoinMode() ? 'Dragoncoin' : 'Yoshicoin';
+                textDiv.textContent = `+1 ${currentCoinName}`;
+                textDiv.style.position = 'absolute';
+                textDiv.style.left = posLeft;
+                textDiv.style.top = posTop;
+                textDiv.style.color = 'yellow';
+                textDiv.style.fontWeight = 'bold';
+                textDiv.style.textShadow = '-1px -1px 0 black , 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black';
+                document.body.appendChild(textDiv);
+
+                setTimeout(() => {
+                    if (textDiv.parentNode) {
+                        textDiv.parentNode.removeChild(textDiv);
+                    }
+                }, 1000);
+            });
+            document.body.appendChild(ycA);
+            yoshicoinDivs.push(yoshicoin);
+
+            setTimeout(() => {
+                if (yoshicoin.parentNode) {
+                    yoshicoin.parentNode.removeChild(yoshicoin);
+                    yoshicoinDivs = yoshicoinDivs.filter(div => div !== yoshicoin);
+                }
+            }, 5000);
+        }
+
+        setInterval(() => {
+            if (Math.random() < 0.2) {
+                addYoshicoin();
+            }
+        }, 1000);
+        setTimeout(updateYoshicoinDisplay, 100);
+        setTimeout(updateYoshicoinDisplay, 1000);
+        setTimeout(updateYoshicoinDisplay, 10000);
+    </script>
 </body>
 </html>
