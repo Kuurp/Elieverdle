@@ -181,6 +181,8 @@ function play(charName) {
     input.value = '';
     suggestionsDiv.innerHTML = '';
     suggestionHighlight = -1;
+
+    updateYoshicoinDisplay();
 }
 
 function cleanupOldGames(currentSeed, playerData) {
