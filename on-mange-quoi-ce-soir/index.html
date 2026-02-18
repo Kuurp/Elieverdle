@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../ssonik.webp">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On mange quoi ce soir ?</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f8f8f8; text-align: center; margin: 0; padding: 0; }
+        h1 { margin-top: 32px; }
+        #random-btn { margin: 32px 0 16px 0; padding: 16px 32px; font-size: 1.2em; border-radius: 8px; border: none; background: #4caf50; color: #fff; cursor: pointer; transition: background 0.2s; }
+        #random-btn:hover { background: #388e3c; }
+        #result { font-size: 2em; margin: 24px 0; color: #333; min-height: 2em; }
+        ul { max-width: 400px; margin: 32px auto; text-align: left; background: #fff; border-radius: 12px; box-shadow: 0 2px 8px #0001; padding: 24px; }
+        li { margin: 6px 0; }
+    </style>
+</head>
+<body>
+    <h1>On mange quoi ce soir ?</h1>
+    <button id="random-btn">Choisir un plat au hasard</button>
+    <div id="result"></div>
+    <ul id="meal-list">
+        <li>1    Croque monsieur</li>
+        <li>2    Boeuf & accompagnement</li>
+        <li>3    Pates pesto vert ou rouge</li>
+        <li>4    Pates carbo</li>
+        <li>5    Cordon bleu & accompagnement</li>
+        <li>6    Tarte à l'oignon</li>
+        <li>7    Quiche lorraine</li>
+        <li>8    Ramen</li>
+        <li>9    Crevette riz persillé</li>
+        <li>10    Saumon & accompagnement</li>
+        <li>11    Riz / Oeuf / Légume</li>
+        <li>12    Poisson blanc & accompagnement</li>
+        <li>13    Curry japonais</li>
+        <li>14    Curry indien </li>
+        <li>15    Paté savoyard</li>
+        <li>16    Gratin dauphinois</li>
+        <li>17    Cake salé</li>
+        <li>18    Tarte au confit</li>
+        <li>19    Gratin de raviole</li>
+        <li>20    Boeuf bourguignon</li>
+        <li>21    Pot au feu </li>
+        <li>22    Risotto chorizo </li>
+        <li>23    Riz sauté</li>
+        <li>24    One-pot-pasta tomate</li>
+        <li>25    Poulet frit</li>
+        <li>26    Saucisse purée</li>
+        <li>27    Dahl de lentille</li>
+        <li>28    Tarte courgette / feta</li>
+        <li>29    Burger maison</li>
+        <li>30    Poulet basquaise</li>
+        <li>31    Poulet olive / citron </li>
+        <li>32    Porc au caramel</li>
+        <li>33    Galettes</li>
+        <li>34   Croziflette</li>
+        <li>35    Mont d'or et patates</li>
+        <li>36    Gnocchis</li>
+        <li>37     Raviolis</li>
+        <li>38    Fajitas</li>
+        <li>39 Viande et pate - sauce roquefort </li>
+        <li>40 œuf à la coque</li>
+    </ul>
+    <script>
+        const meals = [
+            "Croque monsieur",
+            "Boeuf & accompagnement",
+            "Pates pesto vert ou rouge",
+            "Pates carbo",
+            "Cordon bleu & accompagnement",
+            "Tarte à l'oignon",
+            "Quiche lorraine",
+            "Ramen",
+            "Crevette riz persillé",
+            "Saumon & accompagnement",
+            "Riz / Oeuf / Légume",
+            "Poisson blanc & accompagnement",
+            "Curry japonais",
+            "Curry indien",
+            "Paté savoyard",
+            "Gratin dauphinois",
+            "Cake salé",
+            "Tarte au confit",
+            "Gratin de raviole",
+            "Boeuf bourguignon",
+            "Pot au feu",
+            "Risotto chorizo",
+            "Riz sauté",
+            "One-pot-pasta tomate",
+            "Poulet frit",
+            "Saucisse purée",
+            "Dahl de lentille",
+            "Tarte courgette / feta",
+            "Burger maison",
+            "Poulet basquaise",
+            "Poulet olive / citron",
+            "Porc au caramel",
+            "Galettes",
+            "Croziflette",
+            "Mont d'or et patates",
+            "Gnocchis",
+            "Raviolis",
+            "Fajitas",
+            "Viande et pate - sauce roquefort",
+            "œuf à la coque"
+        ];
+        document.getElementById('random-btn').onclick = function() {
+            const idx = Math.floor(Math.random() * meals.length);
+            document.getElementById('result').textContent = meals[idx];
+        };
+    </script>
+</body>
+</html>
