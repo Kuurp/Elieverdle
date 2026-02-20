@@ -14,7 +14,7 @@ function updateShopUI() {
         upgradeBtn.style.display = 'inline-block';
     } else {
         status.textContent = 'Factory: Not owned';
-        upgrade.textContent = 'Upgrade: N/A';
+        upgrade.textContent = '';
         buyBtn.style.display = 'inline-block';
         upgradeBtn.style.display = 'none';
     }
@@ -36,7 +36,7 @@ function startFactoryProduction() {
     if (factoryInterval) clearInterval(factoryInterval);
     factoryInterval = setInterval(() => {
         spawnFactoryYoshicoin();
-    }, 3000 - 500 * factoryUpgradeLevel);
+    }, 2500 - 50 * factoryUpgradeLevel);
 }
 
 function spawnFactoryYoshicoin() {
@@ -46,7 +46,7 @@ function spawnFactoryYoshicoin() {
     coin.src = 'yoshicoin.webp';
     coin.className = 'factory-yoshicoin';
     coin.style.left = (parseInt(factoryImg.style.left) + 40) + 'px';
-    coin.style.bottom = (parseInt(factoryImg.style.bottom) + 40) + 'px';
+    coin.style.bottom = (parseInt(factoryImg.style.bottom) + 13) + 'px';
     coin.style.transform = 'translateX(0px)';
     document.body.appendChild(coin);
     setTimeout(() => {
@@ -67,7 +67,7 @@ function showFactoryCoinText(amount, left, bottom) {
     textDiv.className = 'factory-coin-text';
     textDiv.textContent = `+${amount} Yoshicoin`;
     textDiv.style.left = (parseInt(left) + 120) + 'px';
-    textDiv.style.bottom = (parseInt(bottom) + 40) + 'px';
+    textDiv.style.bottom = (parseInt(bottom) + 20) + 'px';
     document.body.appendChild(textDiv);
     setTimeout(() => {
         if (textDiv.parentNode) textDiv.parentNode.removeChild(textDiv);
