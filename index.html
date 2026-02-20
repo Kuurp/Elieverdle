@@ -17,6 +17,17 @@
 <body>
     <audio id="dragoncoin" src="dragon-coin.ogg" preload="auto"></audio>
     <div id="yoshicoin-count" style="position: absolute;"><p></p></div>
+    <div id="shop">
+        <h2 style="margin-top:0;">Shop</h2>
+        <div id="factory-section">
+            <div id="factory-info">
+                <span id="factory-status">Factory: Not owned</span><br>
+                <span id="factory-upgrade">Upgrade: N/A</span>
+            </div>
+            <button id="buy-factory-btn">Buy Factory (100 Yoshicoins)</button>
+            <button id="upgrade-factory-btn" style="display:none;">Upgrade Factory (200 Yoshicoins)</button>
+        </div>
+    </div>
     <h1 class="outline">Elieverdle</h1>
     <div id="input-container">
         <div id="input-wrapper">
@@ -54,7 +65,10 @@
         });
     </script -->
     
+
+    <!-- Shop/factory logic must be loaded after DOM is ready -->
     <script src="script.js"></script>
+    <script src="shop-factory.js"></script>
 
     <script>
         function getYoshicoinCount() {
@@ -79,6 +93,7 @@
         }
 
         function updateYoshicoinDisplay() {
+            yoshicoins = parseInt(localStorage.getItem('yoshicoinCount')) || 0;
             const coinName = isDragoncoinMode() ? 'Dragoncoins' : 'Yoshicoins';
             const yoshicoinCountDiv = document.getElementById('yoshicoin-count');
             if (yoshicoinCountDiv) {
