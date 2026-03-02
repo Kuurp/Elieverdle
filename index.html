@@ -78,7 +78,7 @@
         let yoshicoins = getYoshicoinCount();
 
         function isDragoncoinMode() {
-            // player finished today's elieverdle and the answer is "Miya"
+            // player finished today's elieverdle and the answer is "Miya" // lol
             const playerData = JSON.parse(localStorage.getItem('elieverdle_playerData') || '{}');
             const todaysSeed = getSeed();
             const todayData = playerData[todaysSeed];
@@ -89,12 +89,12 @@
             
             if (!data) return false;
             const todaysCharIndex = todaysSeed % data.length;
-            return data[todaysCharIndex].name === 'Miya';
+            return data[todaysCharIndex].name === 'Pudding';
         }
 
         function updateYoshicoinDisplay() {
             yoshicoins = parseInt(localStorage.getItem('yoshicoinCount')) || 0;
-            const coinName = isDragoncoinMode() ? 'Dragoncoins' : 'Yoshicoins';
+            const coinName = isDragoncoinMode() ? 'Yoshicoins' : 'Dragoncoins';
             const yoshicoinCountDiv = document.getElementById('yoshicoin-count');
             if (yoshicoinCountDiv) {
                 yoshicoinCountDiv.querySelector('p').textContent = `${coinName}: ${yoshicoins}`;
@@ -171,4 +171,5 @@
         setTimeout(updateYoshicoinDisplay, 10000);
     </script>
 </body>
+
 </html>
