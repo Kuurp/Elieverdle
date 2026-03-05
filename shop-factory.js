@@ -75,7 +75,7 @@ function showFactoryCoinText(amount, left, bottom) {
 }
 
 function factoryUpgradeCost() {
-    return 200 + factoryUpgradeLevel * 100;
+    return 200 + factoryUpgradeLevel * factoryUpgradeLevel * 100;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
