@@ -17,6 +17,7 @@ function updateShopUI() {
         upgrade.textContent = '';
         buyBtn.style.display = 'inline-block';
         upgradeBtn.style.display = 'none';
+        upgradeBtn.innerHTML = 'Buy Factory (' + factoryUpgradeCost() + '100 Yoshicoins)';
     }
 }
 
