@@ -12,12 +12,13 @@ function updateShopUI() {
         upgrade.textContent = 'Upgrade: ' + factoryUpgradeLevel;
         buyBtn.style.display = 'none';
         upgradeBtn.style.display = 'inline-block';
+        upgradeBtn.innerHTML = 'Upgrade Factory (' + factoryUpgradeCost() + ' Yoshicoins)';
     } else {
         status.textContent = 'Factory: Not owned';
         upgrade.textContent = '';
         buyBtn.style.display = 'inline-block';
         upgradeBtn.style.display = 'none';
-        upgradeBtn.innerHTML = 'Buy Factory (' + factoryUpgradeCost() + '100 Yoshicoins)';
+        upgradeBtn.innerHTML = 'Buy Factory (' + factoryUpgradeCost() + ' Yoshicoins)';
     }
 }
 
