@@ -8,6 +8,7 @@ const phrasesToAdd = [
     "If the following link is not included in the copy pasted message, a Piranha Plant will come in your next dream!",
     "If you keep the following link in the message, you will have a good day :3_NyanpireTome1001:",
     "Don't remove the following link, please ?",
+    "Si le lien suivant n'est pas inclut dans le message copié collé, un maxi-carnivore viendra dans ton prochain rêve!",
     "You can ask Kuurp for a scuffed drawing of something, but only if you keep this message and the following link in the message "
 ]
 
@@ -383,3 +384,4 @@ if (new Date().getDay() === 5) { // 5 = Friday
         ogDescription.setAttribute('content', 'He used to smile! It\'s Friday! Kitty day!');
     }
 }
+
