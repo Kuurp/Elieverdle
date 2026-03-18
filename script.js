@@ -305,9 +305,7 @@ function resultToClipboard() {
     });
     let index = Math.floor(Math.random() * phrasesToAdd.length);
     result += `\n${phrasesToAdd[index]}\n`;
-    if (index === 5) {
-        result += `${Date.now()}\n`;
-    }
+
     result += `${urlForResultShare}`;
     const copiedDiv = document.getElementById('copied');
     navigator.clipboard.writeText(result).then(() => {
