@@ -13,7 +13,7 @@ const phrasesToAdd = [
 ]
 
 const csvPath = 'data.csv';
-const urlForResultShare = 'https://kuuro-neko.github.io/Elieverdle/';
+const urlForResultShare = 'https://kuurp.github.io/Elieverdle/';
 const fieldLength = 4;
 const triesToHint = 5;
 
